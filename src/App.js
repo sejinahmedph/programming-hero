@@ -21,7 +21,8 @@ const App = () => {
   })
   return(
     <main>
-      {user?(
+      <Router></Router>
+      {/* {user?(
           <>
             <Router></Router>
           </>
@@ -35,7 +36,7 @@ const App = () => {
             </Routes>
           </>
         )
-      }
+      } */}
     </main>
   );
 
