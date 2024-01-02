@@ -1,0 +1,76 @@
+/* container */
+#container {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+/* form-container */
+#form-container {
+    width: 550px;
+    background: linear-gradient(30deg, rgb(31, 10, 43), rgb(10, 10, 43), rgb(17, 10, 43), rgb(31, 10, 43));
+    padding: 3rem;
+    padding-top: 1rem;
+    border-radius: 24px;
+}
+/* brand */
+#brand {
+    color: white;
+    text-align: center;
+    font-size: larger;
+    font-weight: 500;
+    padding-bottom: 2rem;
+    display: block;
+}
+/* button */
+button {
+    height: 56px;
+    width: 100%;
+    font-size: large;
+    font-weight: 600;
+    padding: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border: 0px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+button:hover {
+    opacity: 0.5;
+}
+/* background */
+.bg-warning {
+    background: linear-gradient(50deg, rgb(192, 192, 0), orange, rgb(211, 211, 0), orange);
+}
+.bg-dark {
+    background: linear-gradient(50deg, rgba(33,37,41,1), rgb(134, 142, 151), rgba(33,37,41,1));
+    color: white;
+}
+.bg-primary {
+    background: linear-gradient(50deg, blue, rgb(90, 203, 248), blue, rgb(88, 200, 245));
+    color: white;
+}
+/* margin */
+.mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+/* scrollbar */
+::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+}
+/* media query */
+@media screen and (max-width: 750px) {
+    /* form-container */
+    #form-container {
+        width: 100%;
+    }
+}
