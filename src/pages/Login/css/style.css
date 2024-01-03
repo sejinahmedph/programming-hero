@@ -4,16 +4,21 @@
     width: 100%;
     display: flex;
     align-items: center;
-    padding-left: 10px;
-    padding-right: 10px;
 }
 /* form-container */
 #form-container {
     width: 550px;
-    background: linear-gradient(30deg, rgb(31, 10, 43), rgb(10, 10, 43), rgb(17, 10, 43), rgb(31, 10, 43));
+    background: linear-gradient(
+                30deg, 
+                rgb(31, 10, 43), 
+                rgb(10, 10, 43), 
+                rgb(17, 10, 43), 
+                rgb(31, 10, 43)
+            );
     padding: 3rem;
     padding-top: 1rem;
     border-radius: 24px;
+    box-shadow: 0rem 0rem 1rem 0rem rgba(255, 255, 255, 0.068);
 }
 /* brand */
 #brand {

@@ -1,10 +1,17 @@
 import React from 'react';
+import FirebaseAuthentication from '../Login/Authentication/firebaseAuthentication';
 
 const Profile = () => {
+    const {user, handleSignOut} = FirebaseAuthentication();
     return (
-        <div>
-            
-        </div>
+        <main>
+            {user ? (
+                <><h1>Signed In: {user.displayName}</h1></>
+            ):(
+                <><h1>No User</h1></>
+            )
+        }
+        </main>
     );
 };
 
