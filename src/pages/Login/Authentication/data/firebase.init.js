@@ -7,7 +7,8 @@ const firebaseConfig = {
   projectId: "programming-hero-27e54",
   storageBucket: "programming-hero-27e54.appspot.com",
   messagingSenderId: "145721927464",
-  appId: "1:145721927464:web:fec7da1704d8fd280e921d"
+  appId: "1:145721927464:web:fec7da1704d8fd280e921d",
+  databaseURL: "https://programming-hero-27e54-default-rtdb.firebaseio.com",
 };
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);

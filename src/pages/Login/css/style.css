@@ -30,7 +30,7 @@
     display: block;
 }
 /* button */
-button {
+#form-container button {
     height: 56px;
     width: 100%;
     font-size: large;
@@ -47,7 +47,7 @@ button {
     cursor: pointer;
     transition: 0.5s;
 }
-button:hover {
+#form-container button:hover {
     opacity: 0.5;
 }
 /* background */
@@ -76,6 +76,6 @@ button:hover {
 @media screen and (max-width: 750px) {
     /* form-container */
     #form-container {
-        width: 100%;
+        width: calc(100% - 10px);
     }
 }

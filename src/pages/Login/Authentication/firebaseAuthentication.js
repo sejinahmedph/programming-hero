@@ -2,10 +2,12 @@ import { useState, useEffect } from 'react';
 import app from './data/firebase.init';
 import { FacebookAuthProvider, GithubAuthProvider, GoogleAuthProvider, 
          getAuth, onAuthStateChanged, signInWithPopup, signOut } from 'firebase/auth'
+import FirebaseRealtimeDatabase from './firebaseRealtimeDatabase';
 const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
 const githubProvider = new GithubAuthProvider();
 const facebookProvider = new FacebookAuthProvider();
+const {AddDocumentToDatabase} = FirebaseRealtimeDatabase();
 const FirebaseAuthentication = () => {
     const [user, setUser] = useState(null);
     const [error, setError] = useState('');
@@ -21,7 +23,14 @@ const FirebaseAuthentication = () => {
         signInWithPopup(auth, googleProvider)
         .then(result => {
             setUser(result.user);
-            window.location.pathname = '/';
+            const user = result.user;
+            AddDocumentToDatabase(
+                user.displayName, 
+                user.uid, 
+                user.email, 
+                user.photoURL, 
+                user.phoneNumber,
+            );
         })
         .catch(error => {
             setError(error.message);
@@ -31,7 +40,14 @@ const FirebaseAuthentication = () => {
         signInWithPopup(auth, githubProvider)
         .then(result => {
             setUser(result.user);
-            window.location.pathname = '/';
+            const user = result.user;
+            AddDocumentToDatabase(
+                user.displayName, 
+                user.uid, 
+                user.email, 
+                user.photoURL, 
+                user.phoneNumber,
+            );
         })
         .catch(error => {
             setError(error.message);
@@ -41,7 +57,14 @@ const FirebaseAuthentication = () => {
         signInWithPopup(auth, facebookProvider)
         .then(result => {
             setUser(result.user);
-            window.location.pathname = '/';
+            const user = result.user;
+            AddDocumentToDatabase(
+                user.displayName, 
+                user.uid, 
+                user.email, 
+                user.photoURL, 
+                user.phoneNumber,
+            );
         })
         .catch(error => {
             setError(error.message);
