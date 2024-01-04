@@ -21,11 +21,13 @@ const Profile = () => {
                     <div className='item'>
                         <div className='border-end'>
                             <span className='fs-3 fw-500 text-white'>Assignments</span>
+                            <button onClick={handleSignOut}>Sign Out</button>
                         </div>
                     </div>
                     <div className='item'>
-                    <span className='fs-3 fw-500 text-white'>Assignments</span>
+                        <span className='fs-3 fw-500 text-white'>Assignments</span>
                     </div>
+            
                 </article>
             </section>
         </main>
