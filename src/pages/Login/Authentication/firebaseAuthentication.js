@@ -31,6 +31,7 @@ const FirebaseAuthentication = () => {
                 user.photoURL, 
                 user.phoneNumber,
             );
+            window.location.pathname = '/';
         })
         .catch(error => {
             setError(error.message);
@@ -48,6 +49,7 @@ const FirebaseAuthentication = () => {
                 user.photoURL, 
                 user.phoneNumber,
             );
+            window.location.pathname = '/';
         })
         .catch(error => {
             setError(error.message);
@@ -65,6 +67,7 @@ const FirebaseAuthentication = () => {
                 user.photoURL, 
                 user.phoneNumber,
             );
+            window.location.pathname = '/';
         })
         .catch(error => {
             setError(error.message);

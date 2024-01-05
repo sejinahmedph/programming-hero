@@ -1,0 +1,39 @@
+/* add-assignment-container */
+#add-assignment-container {
+    background: linear-gradient(50deg, rgba(104, 0, 148, 0.514), rgb(50, 0, 107));
+    padding: 2rem;
+    border-radius: 10px;
+}
+#add-assignment-container img {
+    height: 200px;
+    width: 300px;
+}
+#add-assignment-container button {
+    background: linear-gradient(260.06deg, rgb(255, 55, 242) -4.88%, rgb(64, 90, 255) 89.47%);
+    color: white;
+    font-size: large;
+    font-weight: bold;
+    height: 50px;
+    width: 200px;
+    border: 0px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+#add-assignment-container button:hover {
+    opacity: 0.5;
+}
+/* media query */
+@media screen and (max-width: 991px) {
+    /* add assignment > image */
+    #add-assignment-container img {
+        width: 300px;
+    }
+}
+@media screen and (max-width: 450px) {
+    /* add assignment > image */
+    #add-assignment-container img {
+        height: 180px;
+        width: 100%;
+    }
+}

@@ -1,14 +1,15 @@
 import React from 'react';
 import FirebaseAuthentication from '../Login/Authentication/firebaseAuthentication';
-import { Link } from 'react-router-dom';
+import Header from '../../components/Header/Header';
 
 const Home = () => {
-    const {handleSignOut} = FirebaseAuthentication();
+    const {user} = FirebaseAuthentication();
     return (
         <div>
-            <Link to='/'>Home</Link>
-            <h1>Welcome to your Home!!!</h1>
-            <button onClick={handleSignOut}>Sign Out</button>
+            <Header></Header>
+            <main className='main-container' id='main-container'>
+                <h1 className='text-white'>This is home</h1>
+            </main>
         </div>
     );
 };
