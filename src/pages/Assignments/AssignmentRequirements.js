@@ -12,7 +12,8 @@ const AssignmentRequirements = () => {
                 <img src={logo} style={{marginTop: "-10px"}} alt="logo"/>
                 <span className='fw-500 text-white' style={{marginLeft: "-15px"}}>Programming Hero</span>
             </header>
-            <main className='main-container w-100' style={{paddingTop: "100px", left: "0px"}} id='main-container'>
+            <main className='main-container assignment-requirements-container w-100' style={{paddingTop: "100px", left: "0px"}} 
+            id='main-container'>
                 <section className='mx-auto' style={{maxWidth: "991px"}}>
                     <div>
                         <video src={assignmentvideo1} className='border border-secondary shadow-sm' width={"100%"} 

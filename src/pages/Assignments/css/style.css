@@ -123,8 +123,8 @@ video {
     }
 }
 @media screen and (max-width: 991px) {
-    /* main-container */
-    #main-container {
+    /* assignment-requirements-container */
+    .assignment-requirements-container {
         padding: 0rem!important;
     }
     /* add assignment > image */

@@ -9,6 +9,12 @@ import icVideo from './images/video.svg';
 import { Button, Modal } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import CustomLink from '../../components/CustomLink/CustomLink';
+import { getDatabase, set, ref, onValue } from 'firebase/database';
+import app from '../Login/Authentication/data/firebase.init';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
+
+const auth = getAuth(app);
+const database = getDatabase(app);
 
 const Assignments = () => {
     // Modal ==============================
@@ -16,10 +22,62 @@ const Assignments = () => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     // ====================================
+    // Database ===========================
+    const [user, setUser] = useState(null);
+    const [userID, setUserID] = useState('');
+    onAuthStateChanged(auth, user => {
+        if (user) {
+            setUser(user);
+            setUserID(user.uid);
+        }
+    })
+    const getStartedAssignment = () => {
+        if (user) {
+            set(ref(database, `assignments/${userID}`), "");
+            localStorage.setItem("databaseURL", `assignments/${userID}`);   
+        }
+    }
+    let assignmentContainer = [];
+    const addData = () => {
+        const repo = document.getElementById('repo').value;
+        const link = document.getElementById('link').value;
+        const assignmentData = {
+            id: Math.round(Math.random() * 1000000000),
+            repository: repo,
+            link: link,
+        };
+        assignmentContainer.push(assignmentData);
+    };
+    const readData = () => {
+        if (user) {
+            const starCountRef = ref(database, `assignments/${userID}`);
+            onValue(starCountRef, (snapshot) => {
+            snapshot.forEach(childSnapshot => {
+                    let data = childSnapshot.val();
+                    const id = data.id;
+                    const repo = data.repository;
+                    const livesite = data.link;
+                    assignmentContainer.push({"id": id, "repository": repo, "link": livesite});  
+                    localStorage.setItem("databaseURL", `assignments/${userID}`);
+                })
+            });
+        }
+    };
+    readData();
+    const postData = () => {
+        if (user) {
+            addData();
+            set(ref(database, `assignments/${userID}`), assignmentContainer);
+            window.location.reload();
+        }
+    }
+    // ====================================
+
     return (
         <div>
             <Header></Header>
             <main className='main-container' id='main-container'>
+                {localStorage.getItem('databaseURL') ? (""):(<button onClick={getStartedAssignment}>Get Started</button>)}
                 <section className='px-2'>
                     <CustomLink to="/assignment-requirements">
                         <article className='p-4 rounded' id='requirements-container'>
@@ -35,7 +93,9 @@ const Assignments = () => {
                         <img src={assignmentImage} alt="img"/>
                         <h1 className='text-white'>Assignment : <span className='text-warning'>1</span></h1>
                         <h2 className='text-white'>Total Marks : <span className='text-warning'>60</span></h2>
-                        <Button className='my-2' disabled>Start Assignment</Button>
+                        <input type="text" id='repo' />
+                        <input type="text" id='link' />
+                        <Button className='my-2' onClick={postData}>Start Assignment</Button>
                     </article>
                     <article className='text-center shadow-lg' id='add-assignment-container'>
                         <img src={assignmentImage2} alt="img"/>
