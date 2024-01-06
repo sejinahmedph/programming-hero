@@ -7,6 +7,7 @@ import Profile from '../../pages/Profile/Profile';
 import Login from '../../pages/Login/Login';
 import NotFound from '../../pages/NotFound/NotFound';
 import FirebaseAuthentication from '../../pages/Login/Authentication/firebaseAuthentication';
+import AssignmentRequirements from '../../pages/Assignments/AssignmentRequirements';
 const Router = () => {
     const {user} = FirebaseAuthentication();
     const storageData = localStorage.getItem('userLogedIn');
@@ -19,6 +20,7 @@ const Router = () => {
                         <Route path='/home' element={<Home></Home>}></Route>
                         <Route path='/courses' element={<Courses></Courses>}></Route>
                         <Route path='/assignments' element={<Assignments></Assignments>}></Route>
+                        <Route path='/assignment-requirements' element={<AssignmentRequirements></AssignmentRequirements>}></Route>
                         <Route path='/profile' element={<Profile></Profile>}></Route>
                         <Route path='/login' element={<Profile></Profile>}></Route>
                         <Route path='*' element={<NotFound></NotFound>}></Route>
